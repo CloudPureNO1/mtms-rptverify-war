@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.insigma.insiis.rptverify.dao.RptVerifyMapper">
+    <resultMap id="BaseResultMap" type="com.insigma.insiis.rptverify.model.RptVerify">
+        <id column="rpt_id" jdbcType="VARCHAR" property="rptId"/>
+        <result column="rpt_name" jdbcType="VARCHAR" property="rptName"/>
+        <result column="rpt_path" jdbcType="VARCHAR" property="rptPath"/>
+        <result column="rpt_desc" jdbcType="VARCHAR" property="rptDesc"/>
+        <result column="rpt_time" jdbcType="TIMESTAMP" property="rptTime"/>
+        <result column="access_source" jdbcType="VARCHAR" property="accessSource"/>
+        <result column="rpt_type" jdbcType="VARCHAR" property="rptType"/>
+        <result column="caller_code" jdbcType="VARCHAR" property="callerCode"/>
+        <result column="caller_name" jdbcType="VARCHAR" property="callerName"/>
+        <result column="template_area" jdbcType="VARCHAR" property="templateArea"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete
+        from rpt_verify
+        where rpt_id = #{rptId,jdbcType=VARCHAR}
+    </delete>
+
+    <insert id="insertByJavaUUID" parameterType="com.insigma.insiis.rptverify.model.RptVerify">
+        <!-- 不采用自增主键，也不采用mysql的uuid,使用java的uuid,为了与二维码对应 -->
+        insert into rpt_verify (rpt_id,rpt_name, rpt_path, rpt_desc,
+        rpt_time, access_source,rpt_type,caller_code,caller_name,template_area)
+        values (#{rptId,jdbcType=VARCHAR},#{rptName,jdbcType=VARCHAR}, #{rptPath,jdbcType=VARCHAR},
+        #{rptDesc,jdbcType=VARCHAR},
+        #{rptTime,jdbcType=TIMESTAMP}, #{accessSource,jdbcType=VARCHAR}, #{rptType,jdbcType=VARCHAR}
+        ,#{callerCode,jdbcType=VARCHAR},#{callerName,jdbcType=VARCHAR},#{templateArea,jdbcType=VARCHAR})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.insigma.insiis.rptverify.model.RptVerify">
+        update rpt_verify
+        set rpt_name      = #{rptName,jdbcType=VARCHAR},
+            rpt_path      = #{rptPath,jdbcType=VARCHAR},
+            rpt_desc      = #{rptDesc,jdbcType=VARCHAR},
+            rpt_time      = #{rptTime,jdbcType=TIMESTAMP},
+            access_source = #{accessSource,jdbcType=VARCHAR},
+            rpt_type = #{rptType,jdbcType=VARCHAR},
+            caller_code = #{callerCode,jdbcType=VARCHAR},
+            caller_name = #{callerName,jdbcType=VARCHAR},
+            template_area= #{templateArea,jdbcType=VARCHAR},
+        where rpt_id = #{rptId,jdbcType=VARCHAR}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select rpt_id, rpt_name, rpt_path, rpt_desc, rpt_time, access_source,rpt_type,caller_code,caller_name,template_area
+        from rpt_verify
+        where rpt_id = #{rptId,jdbcType=VARCHAR}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select rpt_id, rpt_name, rpt_path, rpt_desc, rpt_time, access_source,rpt_type,caller_code,caller_name,template_area
+        from rpt_verify
+    </select>
+
+</mapper>

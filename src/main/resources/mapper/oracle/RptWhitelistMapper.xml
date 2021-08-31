@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.insigma.insiis.rptverify.dao.RptWhitelistMapper">
+    <resultMap id="BaseResultMap" type="com.insigma.insiis.rptverify.model.RptWhitelist">
+        <id column="white_id" jdbcType="VARCHAR" property="whiteId"/>
+        <result column="white_name" jdbcType="VARCHAR" property="whiteName"/>
+        <result column="white_cnname" jdbcType="VARCHAR" property="whiteCnname"/>
+        <result column="white_ip" jdbcType="VARCHAR" property="whiteIp"/>
+        <result column="white_flag" jdbcType="VARCHAR" property="whiteFlag"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="white_type" jdbcType="VARCHAR" property="whiteType"/>
+        <result column="white_desc" jdbcType="VARCHAR" property="whiteDesc"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete
+        from rpt_whitelist
+        where white_id = #{whiteId,jdbcType=VARCHAR}
+    </delete>
+
+    <insert id="insertByJavaUUID" parameterType="com.insigma.insiis.rptverify.model.RptVerify">
+        <!-- 不采用自增主键，也不采用mysql的uuid,使用java的uuid,为了与二维码对应 -->
+        insert into rpt_whitelist (white_id,white_name, white_cnname, white_ip,
+        white_flag, create_time,white_type,white_desc)
+        values (#{whiteId,jdbcType=VARCHAR},#{whiteName,jdbcType=VARCHAR}, #{whiteCnname,jdbcType=VARCHAR},
+        #{whiteIp,jdbcType=VARCHAR},
+        #{whiteFlag,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{whiteType,jdbcType=VARCHAR}
+        ,#{whiteDesc,jdbcType=VARCHAR})
+    </insert>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select white_id,white_name, white_cnname, white_ip, white_flag, create_time,white_type,white_desc
+        from rpt_whitelist
+        where white_id = #{whiteId,jdbcType=VARCHAR}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select white_id,white_name, white_cnname, white_ip, white_flag, create_time,white_type,white_desc
+        from rpt_whitelist
+        where 1=1
+        <trim>
+            <if test="whiteFlag!=null">and white_flag=#{whiteFlag,jdbcType=VARCHAR}</if>
+        </trim>
+    </select>
+
+</mapper>

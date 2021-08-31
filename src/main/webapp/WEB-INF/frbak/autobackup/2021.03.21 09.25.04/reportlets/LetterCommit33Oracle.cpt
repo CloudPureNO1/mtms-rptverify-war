@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20151125" releaseVersion="8.0.0">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="aab101"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[siis]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select 
+aab004,
+aab004||'(用人单位)郑重承诺书：' as "承诺书"
+from ab01 
+where aab121='1'
+and aab101=${aab101}]]></Query>
+</TableData>
+<TableData name="ds2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="aae107"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[siis]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select 
+'${aae107}' as "业务年度",
+'${aae107}年安排就业的残疾人信息；' as "第二条说明"
+from dual]]></Query>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[1371600,1440000,1440000,1440000,1728000,1728000,1728000,1728000,876300,342900,723900,495300,342900,723900,495300,342900,723900,495300,342900,723900,495300,342900,723900,495300,723900,5143500,4648200,1728000,1728000,1728000,1728000,1728000,1728000,1728000,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[1371600,723900,266700,1752600,2743200,2667000,2057400,2971800,2628900,2743200,4800600,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="0">
+<PrivilegeControl/>
+<Present class="com.fr.report.cell.cellattr.BarcodePresent">
+<BarcodeAttr type="16" height="12" RCodeVersion="0" RCodeErrorCorrect="1" RcodeDrawPix="1"/>
+</Present>
+<Expand dir="0"/>
+</C>
+<C c="0" r="1" cs="11" rs="2" s="1">
+<O>
+<![CDATA[申报资料真实性承诺书]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="3" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="3" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="3" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="3" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="3" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="3" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="3" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="3" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="3" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="4" cs="11" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="承诺书"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="5" cs="4" s="4">
+<O>
+<![CDATA[    在办理]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="5" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="业务年度"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="5" cs="6" s="6">
+<O>
+<![CDATA[年度按比例安排残疾人就业审核认定事项中所提交的]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="6" cs="11" s="6">
+<O>
+<![CDATA[下列材料真实、有效，复印件与原件一致。如有隐瞒或提供的材料虚假，]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="7" cs="11" s="6">
+<O>
+<![CDATA[愿意承担一切法律后果。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="9" cs="8" rs="3" s="7">
+<O>
+<![CDATA[用人单位；]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="10" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="10" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="12" cs="8" rs="3" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="第二条说明"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="13" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="13" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="15" cs="8" rs="3" s="7">
+<O>
+<![CDATA[残疾人证、残疾军人证；]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="16" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="16" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="18" cs="8" rs="3" s="7">
+<O>
+<![CDATA[劳动合同/残疾人在编证明；]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="19" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="19" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="21" cs="8" rs="3" s="7">
+<O>
+<![CDATA[残疾人参保信息；]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="22" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="22" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="27" cs="6" s="6">
+<O>
+<![CDATA[用人单位名称（章）]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="28" cs="6" s="6">
+<O>
+<![CDATA[法定代表人或授权经办人签名：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="29" cs="6" s="5">
+<O>
+<![CDATA[年    月     日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting/>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="128"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="88"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<FRFont name="SimSun" style="0" size="120"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="120"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="120"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="120"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="IAA"/>
+<PreviewType PreviewType="0"/>
+</WorkBook>
